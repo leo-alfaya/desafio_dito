@@ -1,7 +1,5 @@
-const eventos = require('../data/eventos')
+const eventos = require('../data/eventos');
 
-const getEventos = (cb) => {
-    return new Promise(resolve => {
-        setTimeout(() => resolve(eventos), 1000)
-    })
-}
+export default cb => new Promise(() => {
+  setTimeout(() => cb(eventos), 1000);
+});
