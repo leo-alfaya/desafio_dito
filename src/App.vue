@@ -1,32 +1,27 @@
 <template>
     <div id="app">
-        <p v-for="(compra, key) in compras" :key="key">{{compra}}</p>
+        <p v-for="(buyout, key) in buyouts" :key="key">{{buyout}}</p>
     </div>
 </template>
 
 <script>
-import getEventos from './api/eventos';
-import formatCustomData from './util/helpers';
+import getEvents from './api/events';
+import { prepareBuyouts } from './util/helpers';
 
 export default {
   name: 'app',
   data() {
     return {
-      compras: [],
+      buyouts: [],
     };
   },
   mounted() {
-    this.fetchCompras();
+    this.fetchBuyouts();
   },
   methods: {
-    fetchCompras() {
-      getEventos((data) => {
-          console.log(data)
-        this.compras = data.events.map((event) => {
-          let compra = event
-          compra.custom_data = formatCustomData(event.custom_data);
-          return compra
-        });
+    fetchBuyouts() {
+      getEvents((events) => {
+        this.buyouts = prepareBuyouts(events);
       });
     },
   },
