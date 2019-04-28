@@ -17,28 +17,28 @@ export const formatEvent = (event) => {
 
 export const organizeEvents = (events) => {
   const buyouts = [];
-  const items = [];
+  const products = [];
 
   events.map((event) => {
     if (event.event === 'comprou') {
       buyouts.push(formatEvent(event));
     } else {
-      items.push(formatEvent(event));
+      products.push(formatEvent(event));
     }
 
     return null;
   });
 
-  return [buyouts, items];
+  return [buyouts, products];
 };
 
 export const prepareBuyouts = (events) => {
-  const [buyouts, items] = organizeEvents(events);
+  const [buyouts, products] = organizeEvents(events);
 
   buyouts.map((buyout) => {
     const buy = buyout;
 
-    buy.itens = items.filter(item => item.transaction_id === buyout.transaction_id);
+    buy.products = products.filter(product => product.transaction_id === buyout.transaction_id);
 
     return buy;
   });

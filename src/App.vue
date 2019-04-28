@@ -1,32 +1,36 @@
 <template>
     <div id="app">
-        <p v-for="(buyout, key) in buyouts" :key="key">{{buyout}}</p>
+      <BuyoutPage />
     </div>
 </template>
 
 <script>
-import getEvents from './api/events';
-import { prepareBuyouts } from './util/helpers';
+import BuyoutPage from './layouts/BuyoutPage.vue';
 
 export default {
   name: 'app',
-  data() {
-    return {
-      buyouts: [],
-    };
-  },
-  mounted() {
-    this.fetchBuyouts();
-  },
-  methods: {
-    fetchBuyouts() {
-      getEvents((events) => {
-        this.buyouts = prepareBuyouts(events);
-      });
-    },
+  components: {
+    BuyoutPage,
   },
 };
 </script>
 
 <style lang="scss">
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  background-color: #ececec;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+#app {
+  width: 100%;
+  min-height: 100vh;
+}
 </style>
