@@ -9,7 +9,7 @@
 
 <script>
 import getEvents from '../../api/events';
-import { prepareBuyouts } from '../../util/buyoutsHelpers';
+import prepareBuyouts from '../../util/buyoutsHelpers';
 import BuyoutCard from './BuyoutCard/index.vue';
 
 export default {

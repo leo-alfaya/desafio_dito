@@ -1,6 +1,6 @@
 const formatCustomData = (obj) => {
   const formatedObject = {};
-    
+
   obj.map((prop) => {
     formatedObject[prop.key] = prop.value;
     return null;
@@ -32,13 +32,9 @@ const organizeEvents = (events) => {
   return [buyouts, products];
 };
 
-const sortByDate = (arr) => {
-    return arr.sort((a, b) => {
-        return new Date(a.timestamp) - new Date(b.timestamp);
-    });
-}
+const sortByDate = arr => arr.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
 
-export const prepareBuyouts = (events) => {
+export default (events) => {
   const [buyouts, products] = organizeEvents(events);
 
   buyouts.map((buyout) => {

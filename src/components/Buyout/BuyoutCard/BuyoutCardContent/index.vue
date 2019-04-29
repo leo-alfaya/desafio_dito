@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { currencyValue } from '../../../../util/formatHelpers';
+import currencyValue from '../../../../util/formatHelpers';
 
 export default {
   name: 'BuyoutCardContent',

@@ -21,8 +21,10 @@
 </template>
 
 <script>
-import { currencyValue } from '../../../util/formatHelpers';
+import currencyValue from '../../../util/formatHelpers';
+
 const moment = require('moment');
+
 moment.locale('pt-BR');
 
 export default {
