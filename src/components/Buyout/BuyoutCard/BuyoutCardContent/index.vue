@@ -14,11 +14,13 @@
 </template>
 
 <script>
+import { currencyValue } from '../../../../util/formatHelpers';
+
 export default {
   name: 'BuyoutCardContent',
   methods: {
     formatCurrency(value) {
-      return `R$ ${value.toFixed(2)}`;
+      return currencyValue(value);
     },
   },
   props: {

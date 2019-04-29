@@ -21,7 +21,9 @@
 </template>
 
 <script>
+import { currencyValue } from '../../../util/formatHelpers';
 const moment = require('moment');
+moment.locale('pt-BR');
 
 export default {
   name: 'BuyoutCardHeader',
@@ -38,7 +40,7 @@ export default {
       return moment(this.timestamp).format('H:mm');
     },
     value() {
-      return `R$ ${this.revenue.toFixed(2).toLocaleString('pt-BR')}`;
+      return currencyValue(this.revenue);
     },
   },
 };
